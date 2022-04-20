@@ -11,12 +11,6 @@
 <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(function(){
-		$("#btnDelete").click(function(){
-			var idx = $("#idx").val();
-			if(confirm("삭제하시겠습니까?")){
-				location.href="/reservation/delete.do?idx=" + idx;
-			}
-		});
 		$("#btnDelete_all").click(function(){
 			if(confirm("삭제하시겠습니까?")){
 				location.href="/reservation/delete_all.do";
@@ -55,7 +49,7 @@
 		<td>${row.total_fare }</td>
 		<td><fmt:formatDate value="${row.booking_date }" pattern="yyyy-MM-dd (E)" /></td>
 		<td><fmt:formatDate value="${row.reg_date }" pattern="yyyy-MM-dd (E) HH:mm:ss" /></td>
-		<td><button type="button" id="btnDelete">삭제</button></td>
+		<td><button type="button" id="btnDelete" onclick="location.href='/reservation/delete.do?idx=${row.idx}'">삭제</button></td>
 	</tr>
 	</c:forEach>
 </table>
