@@ -9,10 +9,10 @@
         <meta name="author" content="" />
         <title>Great Park</title>
         <!-- Favicon-->
-        <link rel="icon" type="../image/x-icon" href="../assets/favicon.ico" />
+        <link rel="icon" type="../image/x-icon" href="/assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <script src="/greatpark/include/jquery-3.6.0.js"></script>
+        <link href="/css/styles.css" rel="stylesheet" />
+        <script src="/include/jquery-3.6.0.js"></script>
     </head>
     <body>
         <div class="d-flex" id="wrapper">
@@ -20,7 +20,7 @@
             <div class="border-end bg-white" id="sidebar-wrapper">
                 <div class="sidebar-heading border-bottom bg-light">Home</div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">이용안내</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/info/information.do">이용안내</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">예약</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">굿즈구입</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">공지</a>
