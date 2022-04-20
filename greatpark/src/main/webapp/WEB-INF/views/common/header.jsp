@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,10 +11,10 @@
         <meta name="author" content="" />
         <title>Great Park</title>
         <!-- Favicon-->
-        <link rel="icon" type="../image/x-icon" href="../assets/favicon.ico" />
+        <link rel="icon" type="../image/x-icon" href="/assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <script src="/greatpark/include/jquery-3.6.0.js"></script>
+        <link href="/css/styles.css" rel="stylesheet" />
+        <script src="/include/jquery-3.6.0.js"></script>
     </head>
     <body>
         <div class="d-flex" id="wrapper">
@@ -22,7 +24,7 @@
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">이용안내</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">예약</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">굿즈구입</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/goods/product/list.do">굿즈구입</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">공지</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">고객요청</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">사이트맵</a>
@@ -39,8 +41,9 @@
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                                 <li class="nav-item active"><a class="nav-link" href="#!">로그인</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#!">회원가입</a></li>
+                               	<li class="nav-item"><a class="nav-link" href="/greatpark/goods/cart/list.do">장바구니</a></li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="#!">Action</a>
                                         <a class="dropdown-item" href="#!">Another action</a>
