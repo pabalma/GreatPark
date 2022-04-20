@@ -21,7 +21,7 @@
             <div class="border-end bg-white" id="sidebar-wrapper">
                 <div class="sidebar-heading border-bottom bg-light"><a class="bg-light list-group-item-light" href="/">Home</a></div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">이용안내</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/info/information.do">이용안내</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/reservation/list.do">예약</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/goods/product/list.do">굿즈구입</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">공지</a>
