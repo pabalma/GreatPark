@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,10 +19,10 @@
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom bg-light">Home</div>
+                <div class="sidebar-heading border-bottom bg-light"><a class="bg-light list-group-item-light" href="/">Home</a></div>
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">이용안내</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">예약</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/reservation/list.do">예약</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/goods/product/list.do">굿즈구입</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">공지</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">고객요청</a>
@@ -39,9 +38,19 @@
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                                <li class="nav-item active"><a class="nav-link" href="#!">로그인</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#!">회원가입</a></li>
-                               	<li class="nav-item"><a class="nav-link" href="/greatpark/goods/cart/list.do">장바구니</a></li>
+                               
+                            <c:choose>
+                            	<c:when test="${sessionScope.userid != null }">
+                            		<li class="nav-item nav-link">${sessionScope.name }(${sessionScope.userid })님 환영합니다</li>
+                            		<li class="nav-item active"><a class="nav-link" href="/user/detail/${sessionScope.userid }">내 정보</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/greatpark/goods/cart/list.do">장바구니</a></li>
+									              <li class="nav-item active"><a class="nav-link" href="/user/logout.do">로그아웃</a></li>
+								              </c:when>
+								              <c:otherwise>
+	                                <li class="nav-item active"><a class="nav-link" href="/user/login.do">로그인</a></li>
+	                                <li class="nav-item"><a class="nav-link" href="/user/join.do">회원가입</a></li>
+								              </c:otherwise>
+                            </c:choose>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
