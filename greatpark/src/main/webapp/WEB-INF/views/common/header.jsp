@@ -43,13 +43,18 @@
                             	<c:when test="${sessionScope.userid != null }">
                             		<li class="nav-item nav-link">${sessionScope.name }(${sessionScope.userid })님 환영합니다</li>
                             		<li class="nav-item active"><a class="nav-link" href="/user/detail/${sessionScope.userid }">내 정보</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/greatpark/goods/cart/list.do">장바구니</a></li>
-									              <li class="nav-item active"><a class="nav-link" href="/user/logout.do">로그아웃</a></li>
-								              </c:when>
-								              <c:otherwise>
+                                	<li class="nav-item"><a class="nav-link" href="/greatpark/goods/cart/list.do">장바구니</a></li>
+									<li class="nav-item active"><a class="nav-link" href="/user/logout.do">로그아웃</a></li>
+								</c:when>
+								<c:when test="${sessionScope.adminid != null }">
+									<li class="nav-item nav-link">관리자 ${sessionScope.name }(${sessionScope.adminid })님 환영합니다</li>
+									<li class="nav-item active"><a class="nav-link" href="/admin/logout.do">로그아웃</a></li>
+								</c:when>
+								<c:otherwise>
 	                                <li class="nav-item active"><a class="nav-link" href="/user/login.do">로그인</a></li>
 	                                <li class="nav-item"><a class="nav-link" href="/user/join.do">회원가입</a></li>
-								              </c:otherwise>
+	                                <li class="nav-item active"><a class="nav-link" href="/admin/login.do">관리자 로그인</a></li>
+								</c:otherwise>
                             </c:choose>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>

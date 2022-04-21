@@ -15,7 +15,26 @@ public class FareDAOImpl implements FareDAO {
 	
 	@Override
 	public List<FareDTO> list() {
-		return sqlSession.selectList("reservation.fare_list");
+		return sqlSession.selectList("faretype.list");
 	}
-
+	
+	@Override
+	public void insert(FareDTO dto) {
+		sqlSession.insert("faretype.insert", dto);
+	}
+	
+	@Override
+	public FareDTO detail(int code){
+		return sqlSession.selectOne("faretype.detail", code);
+	}
+	
+	@Override
+	public void update(FareDTO dto){
+		sqlSession.update("faretype.update", dto);
+	}
+	
+	@Override
+	public void delete(int code){
+		sqlSession.delete("faretype.delete", code);
+	}
 }

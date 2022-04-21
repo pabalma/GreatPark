@@ -7,16 +7,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%@ include file="../common/header.jsp" %> 
 <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(function(){
 		$("#btnUpdate").click(function(){
-			document.form1.action = "/pj/admin/update.do";
+			document.form1.action = "/admin/update.do";
 			document.form1.submit();
 		});
 		$("#btnDelete").click(function(){
 			if(confirm("탈퇴하시겠습니까?")){
-				document.form1.action = "/pj/admin/delete.do";
+				document.form1.action = "/admin/delete.do";
 				document.form1.submit();
 			}
 		});
@@ -24,7 +25,6 @@
 </script>
 </head>
 <body>
-<%@ include file="../include/menu.jsp" %>
 <h2>회원 정보 수정</h2>
 <form method="post" name="form1">
 	아이디 <input name="adminid" value="${dto.adminid }" readonly><br>
@@ -37,5 +37,6 @@
 	<button type="button" id="btnUpdate">수정</button>
 	<button type="button" id="btnDelete">탈퇴</button>
 </form>
+<%@ include file="../common/footer.jsp" %>
 </body>
 </html>
