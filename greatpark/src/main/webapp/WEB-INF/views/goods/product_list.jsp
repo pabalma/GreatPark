@@ -26,7 +26,7 @@ $(function(){
 		<td>${row.product_code}</td>
 		<td><img src="/images/${row.filename}" width="100px" height="100px"></td>
 		<td><a href="/goods/product/detail/${row.product_code}">${row.product_name}</a>
-	<%-- <c:if test="${sessionScope.admin_userid != null}"> --%>
+	<%-- <c:if test="${sessionScope.adminid != null}"> --%>
 			<br>
 			<a href="/goods/product/edit/${row.product_code}">[편집]</a>
 	<%-- </c:if> --%>

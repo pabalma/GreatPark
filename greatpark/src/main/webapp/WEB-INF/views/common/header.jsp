@@ -24,8 +24,8 @@
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/info/information.do">이용안내</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/reservation/list.do">예약</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/goods/product/list.do">굿즈구입</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/board/list.do">고객요청</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">공지</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">고객요청</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">사이트맵</a>
                 </div>
             </div>
