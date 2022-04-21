@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="info">
+<select id ="list" resultType="com.myproject.greatpark.model.info.RestDTO">
+	SELECT a.num,a.name,b.name name2,a.main,a.site,a.phone 
+	FROM restaurant a inner join rest_type b
+	WHERE a.kind = b.code
+</select>
+</mapper>
