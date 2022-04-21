@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%@ include file="../common/header.jsp" %> 
 <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(function(){
@@ -22,18 +23,17 @@
 				$("#passwd").focus();
 				return;
 			}
-			document.form1.action = "/pj/admin/login_check.do";
+			document.form1.action = "/admin/login_check.do";
 			document.form1.submit();
 		});
 		$("#btnJoin").click(function(){
-			document.form1.action = "/pj/admin/join.do";
+			document.form1.action = "/admin/join.do";
 			document.form1.submit();
 		});
 	});
 </script>
 </head>
 <body>
-<%@ include file="../include/menu.jsp" %>
 <h2>관리자 로그인</h2>
 <form name="form1" method="post">
 	<table border="1" width="400px">
@@ -59,5 +59,6 @@
 		</tr>
 	</table>
 </form>
+<%@ include file="../common/footer.jsp" %>
 </body>
 </html>
