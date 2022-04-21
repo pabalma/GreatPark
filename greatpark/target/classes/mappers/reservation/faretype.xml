@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="faretype">
+	<select id="list" resultType="com.myproject.greatpark.model.reservation.FareDTO">
+		select * from fare_type
+	</select>
+	<insert id="insert">
+		insert into fare_type (code, cont, fare) values(#{code}, #{cont}, #{fare})
+	</insert>
+	<select id="detail" resultType="com.myproject.greatpark.model.reservation.FareDTO">
+		select * from fare_type where code = #{code}
+	</select>
+	<update id="update">
+		update fare_type set cont = #{cont}, fare = #{fare} where code = #{code}
+	</update>
+	<delete id="delete">
+		delete from fare_type where code = #{code}
+	</delete>
+</mapper>

@@ -41,7 +41,11 @@ public class ReservationController {
 	
 	@RequestMapping("list.do")
 	public String list(HttpSession session, Model model) {
-		if(session.getAttribute("userid") == null) return "user/login";
+		if(session.getAttribute("adminid") != null) {
+			return "redirect:/reservation/manage.do";
+		} else if(session.getAttribute("userid") == null) {
+			return "user/login";
+		}
 		String userid = session.getAttribute("userid").toString();
 		List<ReservationDTO> list = reservationDao.list(userid);
 		model.addAttribute("list", list);
@@ -81,4 +85,16 @@ public class ReservationController {
 		reservationDao.delete(idx);
 		return "redirect:/reservation/list.do";
 	}
+	
+	@RequestMapping("manage.do")
+	public ModelAndView manage() {
+		ModelAndView mav = new ModelAndView();
+		List<ParkingDTO> parking_list = parkingDao.list();
+		List<FareDTO> fare_list = fareDao.list();
+		mav.setViewName("reservation/manage");
+		mav.addObject("parking_list", parking_list);
+		mav.addObject("fare_list", fare_list);
+		return mav;
+	}
+	
 }

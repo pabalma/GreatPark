@@ -26,18 +26,18 @@ $(function(){
 		<td>${row.product_code}</td>
 		<td><img src="/images/${row.filename}" width="100px" height="100px"></td>
 		<td><a href="/goods/product/detail/${row.product_code}">${row.product_name}</a>
-	<%-- <c:if test="${sessionScope.admin_userid != null}"> --%>
+	<c:if test="${sessionScope.adminid != null}">
 			<br>
 			<a href="/goods/product/edit/${row.product_code}">[편집]</a>
-	<%-- </c:if> --%>
+	</c:if>
 		</td>
 		<td><fmt:formatNumber value="${row.price}" pattern="#,###"/></td>
 	</tr>
 </c:forEach>
 	</table>
 <!-- 세션 확인 -->
-<%-- <c:if test="${sessionScope.admin_userid != null}"> --%>
+<c:if test="${sessionScope.adminid != null}">
 	<br><button type="button" id="btnAdd">상품등록</button>
-<%-- </c:if> --%>
+</c:if>
 
 <%@ include file="../common/footer.jsp" %>
