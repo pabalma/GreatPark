@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%@ include file="../common/header.jsp" %> 
 <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(function(){
@@ -27,14 +28,13 @@
 				$("#name").focus();
 				return;
 			}
-			document.form1.action = "/pj/admin/insert.do";
+			document.form1.action = "/admin/insert.do";
 			document.form1.submit();
 		});
 	});
 </script>
 </head>
 <body>
-<%@ include file="../include/menu.jsp" %>
 <h2>회원 정보 입력</h2>
 <form method="post" name="form1">
 	아이디 <input id="adminid" name="adminid"><br>
@@ -44,5 +44,6 @@
 	이메일 <input name="email"><br>
 	<button type="button" id="btnJoin">가입하기</button>
 </form>
+<%@ include file="../common/footer.jsp" %>
 </body>
 </html>
