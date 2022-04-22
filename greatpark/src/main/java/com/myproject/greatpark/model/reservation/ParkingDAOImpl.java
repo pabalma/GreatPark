@@ -24,7 +24,7 @@ public class ParkingDAOImpl implements ParkingDAO {
 	}
 	
 	@Override
-	public FareDTO detail(int code){
+	public ParkingDTO detail(String code){
 		return sqlSession.selectOne("parking.detail", code);
 	}
 	
@@ -34,7 +34,7 @@ public class ParkingDAOImpl implements ParkingDAO {
 	}
 	
 	@Override
-	public void delete(int code){
+	public void delete(String code){
 		sqlSession.delete("parking.delete", code);
 	}
 
