@@ -14,22 +14,26 @@ import com.myproject.greatpark.model.info.RestDAO;
 import com.myproject.greatpark.model.info.RestDTO;
 
 @Controller
+@RequestMapping("/info/*")
 public class RestController {
 
 	@Inject
 	RestDAO restDao;
-	
-	@RequestMapping("/")
-	public String main() {
-		return "redirect:/info/list.do";
-	}
 
-	@RequestMapping("info/list.do")
+	@RequestMapping("information.do")
+	public String info() {
+		return "info/information";
+	}
+	
+	@RequestMapping("foodcort.do")
 	public String restList(Model model) {
 		List<RestDTO> list = restDao.list();
-		model.addAttribute("info", list);
-		return "info/list";
+		model.addAttribute("foodcort", list);
+		return "info/foodcort";
 	}
 
-
+	@RequestMapping("list.do")
+	public String list() {
+		return "info/list";
+	}
 }

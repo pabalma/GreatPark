@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp" %>
 <head>
-<title>음식점 안내</title>
+<title>공원이용안내</title>
 </head>
 <br><br>
 <h4>공원이용시간</h4>
