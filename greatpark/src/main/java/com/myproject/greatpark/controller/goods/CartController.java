@@ -15,7 +15,7 @@ import com.myproject.greatpark.model.goods.CartDAO;
 import com.myproject.greatpark.model.goods.CartDTO;
 
 @Controller
-@RequestMapping("/shop/cart/*")
+@RequestMapping("/goods/cart/*")
 public class CartController {
 	@Inject
 	CartDAO cartDao;
@@ -23,7 +23,7 @@ public class CartController {
 	@RequestMapping("delete.do")
 	public String delete(int cart_id) {
 		cartDao.delete(cart_id);
-		return "redirect:/shop/cart/list.do";
+		return "redirect:/goods/cart/list.do";
 	}
 	@RequestMapping("deleteAll.do")
 	public String deleteAll(HttpSession session) {
@@ -31,13 +31,13 @@ public class CartController {
 		if(userid != null) {
 			cartDao.delete_all(userid);
 		}
-		return "redirect:/shop/cart/list.do";
+		return "redirect:/goods/cart/list.do";
 	}
 	@RequestMapping("update.do")
 	public String update(int[] amount,int[] cart_id,HttpSession session) {
 		String userid =  (String) session.getAttribute("userid");
 		if(userid == null) {
-			return "redirect:/member/login.do";
+			return "redirect:/user/login.do";
 		}
 		for(int i=0;i<cart_id.length;i++) {
 			if(amount[i] ==0) {
@@ -50,7 +50,7 @@ public class CartController {
 				cartDao.modify(dto);
 			}
 		}
-		return "redirect:/shop/cart/list.do";
+		return "redirect:/goods/cart/list.do";
 	}
 	@RequestMapping("list.do")
 	public ModelAndView list(HttpSession session,ModelAndView mav) {
@@ -65,22 +65,22 @@ public class CartController {
 			map.put("sum", sumMoney+fee);
 			map.put("list", list);
 			map.put("count", list.size());
-			mav.setViewName("shop/cart_list");
+			mav.setViewName("goods/cart_list");
 			mav.addObject("map",map);
 			return mav;
 		} else {
-			return new ModelAndView("member/login");
+			return new ModelAndView("user/login");
 		}
 	}
 	@RequestMapping("insert.do")
 	public String insert(CartDTO dto,HttpSession session) {
 		String userid = (String)session.getAttribute("userid");
 		if(userid == null) {
-			return "redirect:/member/login.do";
+			return "redirect:/user/login.do";
 		}
 		dto.setUserid(userid);
 		cartDao.insert(dto);
-		return "redirect:/shop;/cart/list.do";
+		return "redirect:/goods/cart/list.do";
 	}
 
 }

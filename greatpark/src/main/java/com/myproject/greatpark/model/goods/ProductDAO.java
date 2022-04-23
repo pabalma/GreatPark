@@ -7,6 +7,7 @@ public interface ProductDAO {
 	ProductDTO detail(int product_code);
 	void update(ProductDTO dto);
 	void delete(int product_code);
+	void delete_cart(int product_code);
 	void insert(ProductDTO dto);
 	String file_info(int product_code);
 }

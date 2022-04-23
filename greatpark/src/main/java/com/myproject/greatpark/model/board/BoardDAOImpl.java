@@ -51,15 +51,24 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 	
 	@Override
+	public void delete_attach_board(int num) {
+		sqlSession.delete("board.delete_attach_board",num);
+	}
+	
+	@Override
+	public void delete_reply_board(int num) {
+		sqlSession.delete("reply.delete_reply_board",num);
+	}
+	
+	@Override
 	public List<String> list_attach(int num) {
 		return sqlSession.selectList("board.list_attach",num);
 	}
 	
 	@Override
-	public void insert_attach(String file_name,int num) {
+	public void insert_attach(String file_name) {
 		Map<String,Object> map = new HashMap<>();
 		map.put("file_name", file_name);
-		map.put("num", num);
 		sqlSession.insert("board.insert_attach",map);
 	}
 	

@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<%@ include file="../common/header.jsp" %>
-
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/include/jquery-3.6.0.js"></script>
 <script>
 $(function(){
 	$("#btnReplyDelete").click(function(){
@@ -48,5 +51,5 @@ $(function(){
 	</c:if>
 	<button id="btnReplyClose" type="button">닫기</button>
 </div>
-
-<%@ include file="../common/footer.jsp" %>
+</body>
+</html>
