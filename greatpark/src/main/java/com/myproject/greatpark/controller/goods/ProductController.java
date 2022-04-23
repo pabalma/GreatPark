@@ -86,6 +86,7 @@ public class ProductController {
 			File f = new File(path+filename);
 			if(f.exists()) f.delete();
 		}
+		productDao.delete_cart(product_code);
 		productDao.delete(product_code);
 		return "redirect:/goods/product/list.do";
 	}

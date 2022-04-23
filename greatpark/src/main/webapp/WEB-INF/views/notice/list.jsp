@@ -7,17 +7,17 @@
 <script>
 	$(function() {
 		$("#btnWrite").click(function() {
-			location.href="/board/write.do";
+			location.href="/notice/write.do";
 		});
 	});
 	
 	function list(page) {
-		location.href="/board/list.do?cur_page=" + page + 
+		location.href="/notice/list.do?cur_page=" + page + 
 				"&search_option=${map.search_option}&keyword=${map.keyword}";
 	}
 </script>
 	<br>
-	<h2>고객 요청</h2>
+	<h2>공지 사항</h2>
 	${map.count}개의 게시물이 있습니다.
 	<table border="1" width="600px">
 	<tr>
@@ -31,12 +31,9 @@
 	<tr>
 		<td>${row.num}</td>
 		<td>
-			<a href="/board/detail.do?num=${row.num}&cur_page=${map.page_info.curPage}&search_option=${map.search_option}&keyword=${map.keyword}">
+			<a href="/notice/detail.do?num=${row.num}&cur_page=${map.page_info.curPage}&search_option=${map.search_option}&keyword=${map.keyword}">
 				${row.title}
 			</a>
-	<c:if test="${row.cnt2 > 0}">
-			<span style="color:red">( ${row.cnt2} )</span>
-	</c:if>
 		</td>
 		<td>${row.name}</td>
 		<td>
@@ -72,7 +69,7 @@
 		</td>
 	</tr>
 	</table>
-	<form name="form1" method="post" action="/board/list.do">
+	<form name="form1" method="post" action="/notice/list.do">
 	<select name="search_option">
 		<option value="all" <c:out value="${map.search_option == 'all' ? 'selected' : ''}"/>>
 			이름+내용+제목
@@ -89,7 +86,7 @@
 	</select>
 	<input name="keyword" value="${map.keyword}">
 	<input type="submit" value="조회">
-<c:if test="${sessionScope.userid != null}">
+<c:if test="${sessionScope.adminid != null}">
 	&nbsp;&nbsp;<button type="button" id="btnWrite">글쓰기</button>
 </c:if>
 	</form>

@@ -29,12 +29,11 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void insert(BoardDTO dto) {
 		boardDao.insert(dto);
-		int num = dto.getNum();
 		String[] files = dto.getFiles();
 		if(files == null)
 			return;
 		for(String name : files) {
-			boardDao.insert_attach(name,num);
+			boardDao.insert_attach(name);
 		}
 	}
 
@@ -56,7 +55,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void delete(int bno) {
+	public void delete(int bno) {	
+		boardDao.delete_reply_board(bno);
+		boardDao.delete_attach_board(bno);
 		boardDao.delete(bno);
 	}
 

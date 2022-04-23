@@ -16,7 +16,7 @@ $(function(){
 	});
 });
 </script>
-
+	<br>
 	<h2>장바구니</h2>
 <c:choose>
 	<c:when test="${map.count == 0}">

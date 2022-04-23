@@ -56,7 +56,7 @@
 		width:600px; height:100px; border:1pxdottedgray; background-color:gray;
 	}
 </style>
-
+	<br>
 	<h2>게시물작성</h2>
 	<form id="form1" name="form1" method="post" action="/board/insert.do">
 	<div>
