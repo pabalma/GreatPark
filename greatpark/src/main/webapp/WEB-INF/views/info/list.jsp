@@ -10,7 +10,7 @@ table {
 	line-height: 1.5;
 	border: 1px solid #ccc;
 	margin: 20px 10px;
-	width: 98%;
+	width: 97%;
 }
 
 table thead {
