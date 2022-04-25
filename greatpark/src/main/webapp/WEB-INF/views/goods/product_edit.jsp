@@ -33,7 +33,7 @@ function product_update(){
 	document.form1.submit();
 }
 </script>
-
+	<br>
 	<h2>상품 정보 수정/삭제</h2>
 	<form id="form1" name="form1" method="post" enctype="multipart/form-data">
 	<table>

@@ -14,7 +14,7 @@ $(function(){
 	<br>
 	<h2>Goods List</h2>
 	<br>
-	<table border="1" width="500px">
+	<table border="1" width="500px" class="table table-hover">
 	<tr>
 		<th>상품ID</th>
 		<th>이미지</th>
