@@ -132,7 +132,7 @@ function showModify(idx) {
 }
 </style>
 	<br>
-	<h2>고객요청 상세</h2>
+	<h2 class="text-center">고객요청 상세</h2>
 	<form id="form1" name="form1" method="post">
 	<div>작성일자: <fmt:formatDate value="${dto.reg_date}" pattern="yyyy-MM-dd HH:mm:ss" /></div>
 	<div>조회수: ${dto.cnt}</div>

@@ -14,10 +14,19 @@ $(function(){
 			location.href="/goods/cart/deleteAll.do";
 		}
 	});
+	$("#testBtn").click(function(e){
+		e.preventDefault();
+		$("#testModal").modal("show");
+	});
+	$(".close").click(function(){
+		$("#testModal").modal("hide");
+	});
+	
+	$("#testModal").modal({backdrop:"static",keyboard:false});
 });
 </script>
 	<br>
-	<h2>장바구니</h2>
+	<h2 class="text-center">장바구니</h2>
 <c:choose>
 	<c:when test="${map.count == 0}">
 		장바구니가 비었습니다.
@@ -42,8 +51,8 @@ $(function(){
 				<input type="hidden" name="cart_id" value="${row.cart_id}">
 			</td>
 			<td>${row.money}</td>
-			<td>
-				<a href="/goods/cart/delete.do?cart_id=${row.cart_id}">삭제</a>
+			<td align="right">
+				<a href="/goods/cart/delete.do?cart_id=${row.cart_id}" class="btn btn-outline-danger btn-sm">삭제</a>
 			</td>
 		</tr>
 		</c:forEach>
@@ -55,11 +64,32 @@ $(function(){
 				총합계: <fmt:formatNumber value="${map.sum}" pattern="#,###,###" />
 			</td>
 		</table>
-		<button id="btnUpdate">수정</button>
-		<button type="button" id="btnDelete">장바구니 비우기</button>
+		<button id="btnUpdate" class="btn btn-outline-success">수정</button>
+		<button type="button" id="btnDelete" class="btn btn-outline-primary">장바구니 비우기</button>
+		<button id="btnList" class="btn btn-outline-info">상품목록 확인</button>
 		</form>
 	</c:otherwise>
 </c:choose>
-<button type="button" id="btnList">상품목록</button>
+
+<br>
+<button id="testBtn" class="btn btn-outline-success">구매결정</button>
+  <!-- 회원가입 확인 Modal-->
+<div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">모달테스트</h5>
+				<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">X</span>
+				</button>
+			</div>
+			<div class="modal-body">내용 입력 !!</div>
+			<div class="modal-footer">
+				<a class="btn" id="modalY" href="#">예</a>
+				<button class="btn" type="button" data-dismiss="modal">아니요</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 <%@ include file="../common/footer.jsp" %>

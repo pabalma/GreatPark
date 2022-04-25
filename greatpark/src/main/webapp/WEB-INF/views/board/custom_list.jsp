@@ -17,7 +17,7 @@
 	}
 </script>
 	<br>
-	<h2>고객 요청</h2>
+	<h2 class="text-center">고객 요청</h2>
 	${map.count}개의 게시물이 있습니다.
 	<table border="1" width="600px" class="table table-hover">
 	<tr>

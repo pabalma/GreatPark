@@ -63,8 +63,7 @@ function product_update(){
 		<td colspan="2" align="center">
 			<input type="hidden" name="product_code" value="${dto.product_code}">
 			<input type="button" value="수정" class="btn btn-outline-success" onclick="product_update()">
-			<input type="button" value="삭제" class="btn btn-outline-warning" onclick="product_delete()">
-			<input type="button" value="목록" class="btn btn-outline-primary" onclick="location.href='/goods/product/list.do'">
+			<input type="button" value="삭제" class="btn btn-outline-primary" onclick="product_delete()">
 		</td>
 	</tr>
 	</table>
