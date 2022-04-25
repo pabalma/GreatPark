@@ -8,7 +8,7 @@
 	<img width="1600px" height="700px" src="/images/map1.png">
 </div>
 <div>
-	<img width="1600px" height="701px" src="/images/map2.png">
+	<img width="1600px" height="700px" src="/images/map2.png">
 </div>
 <br><br>
 	<div width="300px" height="100px" style="float:left;margin-left:100px">
