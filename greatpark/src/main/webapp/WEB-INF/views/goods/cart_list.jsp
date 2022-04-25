@@ -24,7 +24,7 @@ $(function(){
 	</c:when>
 	<c:otherwise>
 		<form id="form1" name="form1" method="post" action="/goods/cart/update.do">
-		<table border="1" width="400px">
+		<table border="1" width="400px" class="table table-hover">
 		<tr>
 			<th>상품명</th>
 			<th>단가</th>

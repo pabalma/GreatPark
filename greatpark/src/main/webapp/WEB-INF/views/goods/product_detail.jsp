@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%@ include file="../common/header.jsp" %>
-
+	<br>
 	<h2>상품 정보</h2>
 	<table>
 	<tr>
