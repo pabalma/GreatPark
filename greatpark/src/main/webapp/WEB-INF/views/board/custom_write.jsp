@@ -57,7 +57,7 @@
 	}
 </style>
 	<br>
-	<h2>게시물작성</h2>
+	<h2 class="text-center">게시물작성</h2>
 	<form id="form1" name="form1" method="post" action="/board/insert.do">
 	<div>
 		<input name="title" id="title" size="80" placeholder="제목을 입력하세요.">

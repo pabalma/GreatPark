@@ -29,7 +29,7 @@ function product_write(){
 </script>
 	
 	<br>
-	<h2>상품 등록</h2>
+	<h2 class="text-center">상품 등록</h2>
 	<form name="form1" method="post" enctype="multipart/form-data">
 	<table>
 	<tr>
@@ -53,8 +53,7 @@ function product_write(){
 	<tr>
 		<td colspan="2" align="right">
 		<br>
-			<input type="button" value="등록" onclick="product_write()">
-			<input type="button" value="목록" onclick="location.href='/goods/product/list.do'">
+			<input type="button" value="등록" class="btn btn-outline-success" onclick="product_write()">
 		</td>
 	</tr>
 	</table>

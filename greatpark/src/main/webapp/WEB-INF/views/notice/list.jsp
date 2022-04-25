@@ -17,7 +17,7 @@
 	}
 </script>
 	<br>
-	<h2>공지 사항</h2>
+	<h2 class="text-center">공지 사항</h2>
 	${map.count}개의 게시물이 있습니다.
 	<table border="1" width="600px" class="table table_hover">
 	<tr>
