@@ -25,13 +25,16 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public void update(ProductDTO dto) {
 		sqlSession.update("product.update",dto);
-
 	}
 
 	@Override
 	public void delete(int product_code) {
 		sqlSession.delete("product.delete",product_code);
-
+	}
+	
+	@Override
+	public void delete_cart(int product_code) {
+		sqlSession.delete("cart.delete_product",product_code);
 	}
 
 	@Override

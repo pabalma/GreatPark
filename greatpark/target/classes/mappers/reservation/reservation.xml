@@ -19,10 +19,4 @@
 	<delete id="delete">
 		delete from reservation where idx = #{idx}
 	</delete>
-	<select id="parking_list" resultType="com.myproject.greatpark.model.reservation.ParkingDTO">
-		select * from parking_code
-	</select>
-	<select id="fare_list" resultType="com.myproject.greatpark.model.reservation.FareDTO">
-		select * from fare_type
-	</select>
 </mapper>

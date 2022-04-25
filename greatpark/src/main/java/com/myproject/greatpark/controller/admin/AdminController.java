@@ -43,11 +43,9 @@ public class AdminController {
 		if(name != null) {
 			session.setAttribute("adminid", dto.getAdminid());
 			session.setAttribute("name", name);
-			mav.setViewName("admin/admin");
-			mav.addObject("message", "success");
+			mav.setViewName("redirect:/");
 		} else {
 			mav.setViewName("admin/login");
-			mav.addObject("message", "error");
 		}
 		return mav;
 	}
@@ -73,7 +71,7 @@ public class AdminController {
 		session.setAttribute("adminid", dto.getAdminid());
 		session.setAttribute("name", dto.getName());
 		model.addAttribute("message", "success");
-		return "admin/admin";
+		return "redirect:/user/detail/" + dto.getAdminid();
 	}
 	
 	@RequestMapping("passwd_check.do")

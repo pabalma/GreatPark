@@ -16,31 +16,8 @@
 				"&search_option=${map.search_option}&keyword=${map.keyword}";
 	}
 </script>
-
 	<br>
-	<h2>게시판</h2>
-	<form name="form1" method="post" action="/board/list.do">
-	<select name="search_option">
-		<option value="all" <c:out value="${map.search_option == 'all' ? 'selected' : ''}"/>>
-			이름+내용+제목
-		</option>
-		<option value="name" <c:out value="${map.search_option == 'name' ? 'selected' : ''}"/>>
-			이름
-		</option>
-		<option value="contents" <c:out value="${map.search_option == 'contents' ? 'selected' : ''}"/>>
-			내용
-		</option>
-		<option value="title" <c:out value="${map.search_option == 'title' ? 'selected' : ''}"/>>
-			제목
-		</option>
-	</select>
-	<input name="keyword" value="${map.keyword}">
-	<input type="submit" value="조회">
-<c:if test="${sessionScope.userid != null}">
-	<button type="button" id="btnWrite">글쓰기</button>
-</c:if>
-	</form>
-	<br>
+	<h2>고객 요청</h2>
 	${map.count}개의 게시물이 있습니다.
 	<table border="1" width="600px">
 	<tr>
@@ -94,6 +71,26 @@
 	</c:if>
 		</td>
 	</tr>
-</table>
-
+	</table>
+	<form name="form1" method="post" action="/board/list.do">
+	<select name="search_option">
+		<option value="all" <c:out value="${map.search_option == 'all' ? 'selected' : ''}"/>>
+			이름+내용+제목
+		</option>
+		<option value="name" <c:out value="${map.search_option == 'name' ? 'selected' : ''}"/>>
+			이름
+		</option>
+		<option value="contents" <c:out value="${map.search_option == 'contents' ? 'selected' : ''}"/>>
+			내용
+		</option>
+		<option value="title" <c:out value="${map.search_option == 'title' ? 'selected' : ''}"/>>
+			제목
+		</option>
+	</select>
+	<input name="keyword" value="${map.keyword}">
+	<input type="submit" value="조회">
+<c:if test="${sessionScope.userid != null}">
+	&nbsp;&nbsp;<button type="button" id="btnWrite">글쓰기</button>
+</c:if>
+	</form>
 <%@ include file="../common/footer.jsp" %>

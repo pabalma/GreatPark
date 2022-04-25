@@ -6,34 +6,39 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%@ include file="../common/header.jsp" %> 
 <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(function(){
 		$("#btnLogin").click(function(){
-			var adminid = $("#adminid").val();
-			var passwd = $("#passwd").val();
-			if(adminid == ""){
-				alert("아이디를 입력하세요.");
-				$("#adminid").focus();
-				return;
-			}
-			if(passwd == ""){
-				alert("비밀번호를 입력하세요.");
-				$("#passwd").focus();
-				return;
-			}
-			document.form1.action = "/pj/admin/login_check.do";
-			document.form1.submit();
+			login();
 		});
 		$("#btnJoin").click(function(){
-			document.form1.action = "/pj/admin/join.do";
+			document.form1.action = "/admin/join.do";
 			document.form1.submit();
 		});
 	});
+	
+	// 함수 처리 - 김회웅 20220423
+	function login() {
+		var adminid = $("#adminid").val();
+		var passwd = $("#passwd").val();
+		if(adminid == ""){
+			alert("아이디를 입력하세요.");
+			$("#adminid").focus();
+			return;
+		}
+		if(passwd == ""){
+			alert("비밀번호를 입력하세요.");
+			$("#passwd").focus();
+			return;
+		}
+		document.form1.action = "/admin/login_check.do";
+		document.form1.submit();
+	}
 </script>
 </head>
 <body>
-<%@ include file="../include/menu.jsp" %>
 <h2>관리자 로그인</h2>
 <form name="form1" method="post">
 	<table border="1" width="400px">
@@ -59,5 +64,14 @@
 		</tr>
 	</table>
 </form>
+<%@ include file="../common/footer.jsp" %>
 </body>
+<script>
+//입력 후 Enter키 적용 - 김회웅 20220423 
+$(":input").keyup(function(event){
+	if(event.keyCode == 13) {
+		login();
+	}
+});
+</script>
 </html>

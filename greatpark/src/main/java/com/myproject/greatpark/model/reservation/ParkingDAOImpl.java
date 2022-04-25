@@ -15,7 +15,27 @@ public class ParkingDAOImpl implements ParkingDAO {
 	
 	@Override
 	public List<ParkingDTO> list() {
-		return sqlSession.selectList("reservation.parking_list");
+		return sqlSession.selectList("parking.list");
+	}
+	
+	@Override
+	public void insert(ParkingDTO dto) {
+		sqlSession.insert("parking.insert", dto);
+	}
+	
+	@Override
+	public ParkingDTO detail(String code){
+		return sqlSession.selectOne("parking.detail", code);
+	}
+	
+	@Override
+	public void update(ParkingDTO dto){
+		sqlSession.update("parking.update", dto);
+	}
+	
+	@Override
+	public void delete(String code){
+		sqlSession.delete("parking.delete", code);
 	}
 
 }

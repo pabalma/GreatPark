@@ -9,13 +9,16 @@
 	<delete id="delete_attach">
 		delete from attach where file_name = #{file_name}
 	</delete>
+	<delete id="delete_attach_board">
+		delete from attach where board_idx = #{num}
+	</delete>
 	<insert id="insert">
 		insert into board (title,cont,userid) values
 			(#{title},#{cont},#{userid})
 	</insert>
 	<insert id="insert_attach">
-		insert into attach (file_name,board_idx) values
-			(#{file_name},${num})
+		insert into attach (file_name,board_idx) values  
+			(#{file_name},(SELECT IFNULL(MAX(num),0) FROM board));
 	</insert>
 	<insert id="update_attach">
 		insert into attach (file_name,board_idx) values
@@ -26,8 +29,8 @@
 		<include refid="search" />
 	</select>
 	<select id="list" resultType="com.myproject.greatpark.model.board.BoardDTO">
-		select num,title,cont,b.reg_date,cnt AS hit,name,
-				(select count(*) from reply where board_idx = b.num) cnt
+		select num,title,cont,b.reg_date,cnt,name,
+				(select count(*) from reply where board_idx = b.num) cnt2
 		from board b inner join user u
 		<include refid="search" />
 		order by num desc, reg_date     
@@ -39,10 +42,10 @@
 		  where b.userid = u.userid and num = ${num}
 	</select>
 	<update id="increase_hit">
-		update board set cnt=cnt+1 where cnt = ${num}
+		update board set cnt=cnt+1 where num = ${num}
 	</update>
 	<update id="update">
-		update board set title=#{title}, cont = ${con}
+		update board set title=#{title}, cont = #{cont}
 		  where num = ${num}
 	</update>
 	<delete id="delete">

@@ -7,7 +7,7 @@
 <script>
 $(function(){
 	$("#btnList").click(function(){
-		loaction.href = "/board/list.do";
+		location.href = "/board/list.do";
 	});
 	listReply("1");
 	$("#btnReply").click(function(){
@@ -18,7 +18,7 @@ $(function(){
 	});
 	$(".fileDrop").on("drop", function(e){
 		e.preventDefault();
-		var files = e.originalEvent.dateTransfer.files;
+		var files = e.originalEvent.dataTransfer.files;
 		var file = files[0];
 		var form_data = new FormData();
 		form_data.append("file",file);
@@ -31,7 +31,7 @@ $(function(){
 			type: "post",
 			success: function(data) {
 				var fileInfo = getFileInfo(data);
-				var html = "<a <href='"+fileInfo.get_link+"'>"+
+				var html = "<a href='"+fileInfo.get_link+"'>"+
 						fileInfo.original_name+"</a><br>";
 				html += "<input type='hidden' class='file' value='"+fileInfo.file_name+"'>";
 				$("#uploadedList").append(html);
@@ -56,7 +56,7 @@ $(function(){
 	$("#btnUpdate").click(function(){
 		var str="";
 		$("#uploadedList .file").each(function(i){
-			str += "<input type='hidden' name='files["+i+"]' value='"+$(this).val()+"'>";
+			str += "<input type='hidden' name='files' value='"+$(this).val()+"'>";
 		});
 		$("#form1").append(str);
 		document.form1.action = "/board/update.do";
@@ -75,6 +75,8 @@ function getFileInfo(file_name) {
 	return { original_name: original_name, get_link: get_link, file_name: file_name};
 }
 function listAttach() {
+	var sessionid = "${sessionScope.userid}";
+	var userid = "${dto.userid}";
 	$.ajax({
 		type: "post",
 		url: "/board/list_attach/${dto.num}",
@@ -84,7 +86,8 @@ function listAttach() {
 				var fileInfo = getFileInfo(this);
 				var html = "<div><a href='"+fileInfo.get_link+"'>"+fileInfo.original_name+
 							"</a>&nbsp;&nbsp;";
-				html += "<a href='#' class='file_del' data-src='"+this+"'>[삭제]</a></div>";
+				if(sessionid == userid)
+					html += "<a href='#' class='file_del' data-src='"+this+"'>[삭제]</a></div>";
 				$("#uploadedList").append(html);
 			});
 		}
@@ -129,7 +132,7 @@ function showModify(idx) {
 }
 </style>
 	<br>
-	<h2>게시물 보기</h2>
+	<h2>고객요청 상세</h2>
 	<form id="form1" name="form1" method="post">
 	<div>작성일자: <fmt:formatDate value="${dto.reg_date}" pattern="yyyy-MM-dd HH:mm:ss" /></div>
 	<div>조회수: ${dto.cnt}</div>
@@ -141,7 +144,7 @@ function showModify(idx) {
 	<div id="uploadedList"></div>
 	<div class="fileDrop"></div>
 	<div>
-		<input type="hidden" name="idx" value="${dto.num}">
+		<input type="hidden" name="num" value="${dto.num}">
 <c:if test="${sessionScope.userid == dto.userid }">
 			<button type="button" id="btnUpdate">수정</button>
 			<button type="button" id="btnDelete">삭제</button>

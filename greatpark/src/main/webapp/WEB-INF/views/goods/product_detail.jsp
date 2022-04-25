@@ -32,7 +32,7 @@
 							<option value="${i}">${i}</option>
  </c:forEach>
 						</select> &nbsp; 개
- <c:if test="${sessionScope.admin_userid == null}">
+ <c:if test="${sessionScope.adminid == null}">
 						<input type="submit" value="장바구니에 담기">
  </c:if> 
 					</form>
