@@ -11,7 +11,7 @@ table {
 	line-height: 1.5;
 	border: 1px solid #ccc;
 	margin: 20px 10px;
-	width: 97%;
+	width: 98%;
 }
 
 table thead {
