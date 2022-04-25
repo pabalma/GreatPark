@@ -25,17 +25,43 @@
 </script>
 </head>
 <body>
-<h2>회원 정보 수정</h2>
+<h2 class="mx-5 my-3">회원 정보 수정</h2>
 <form method="post" name="form1">
-	아이디 <input name="userid" value="${dto.userid }" readonly><br>
-	비밀번호 <input type="password" name="passwd"><br>
-	이름 <input name="name" value="${dto.name }"><br>
-	나이 <input name="age" value="${dto.age }"><br>
-	전화번호 <input name="phone" value="${dto.phone }"><br>
-	이메일 <input name="email" value="${dto.email }"><br>
-	가입일자 <fmt:formatDate value="${dto.join_date }" pattern="yyyy-MM-dd HH:mm:ss" />
-	<button type="button" id="btnUpdate">수정</button>
-	<button type="button" id="btnDelete">탈퇴</button>
+	<div class="mx-5">
+		<table style="text-align:center;" class="table-borderless" width="350px">
+			<tr>
+				<td><br>아이디</td>
+				<td><br><input name="userid" class="form-control" value="${dto.userid }" readonly></td>
+			</tr>
+			<tr>
+				<td><br>비밀번호</td>
+				<td><br><input type="password" name="passwd" class="form-control"></td>
+			</tr>
+			<tr>
+				<td><br>이름</td>
+				<td><br><input name="name" class="form-control" value="${dto.name }"></td>
+			</tr>
+			<tr>
+				<td><br>나이</td>
+				<td><br><input name="age" class="form-control" value="${dto.age }"></td>
+			</tr>
+			<tr>
+				<td><br>전화번호</td>
+				<td><br><input name="phone" class="form-control" value="${dto.phone }"></td>
+			</tr>
+			<tr>
+				<td><br>이메일</td>
+				<td><br><input name="email" class="form-control" value="${dto.email }"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right">
+					<br>
+					<button type="button" id="btnUpdate" class="btn btn-primary">수정</button>
+					<button type="button" id="btnDelete" class="btn btn-primary">탈퇴</button>
+				</td>
+			</tr>
+		</table>
+	</div>
 </form>
 <%@ include file="../common/footer.jsp" %>
 </body>

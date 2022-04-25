@@ -25,7 +25,7 @@
 </script>
 </head>
 <body>
-<h2>회원 정보 수정</h2>
+<h2 class="mx-5 my-3">관리자 정보 수정</h2>
 <form method="post" name="form1">
 	아이디 <input name="adminid" value="${dto.adminid }" readonly><br>
 	비밀번호 <input type="password" name="passwd"><br>

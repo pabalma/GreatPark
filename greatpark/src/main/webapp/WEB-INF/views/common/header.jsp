@@ -48,6 +48,7 @@
 								</c:when>
 								<c:when test="${sessionScope.adminid != null }">
 									<li class="nav-item nav-link">관리자 ${sessionScope.name }(${sessionScope.adminid })님 환영합니다</li>
+									<li class="nav-item active"><a class="nav-link" href="/admin/detail/${sessionScope.adminid }">관리자 정보</a></li>
 									<li class="nav-item active"><a class="nav-link" href="/admin/logout.do">로그아웃</a></li>
 								</c:when>
 								<c:otherwise>

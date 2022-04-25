@@ -46,6 +46,7 @@ public class AdminController {
 			mav.setViewName("redirect:/");
 		} else {
 			mav.setViewName("admin/login");
+			mav.addObject("message", "error");
 		}
 		return mav;
 	}
@@ -65,13 +66,14 @@ public class AdminController {
 	
 	@RequestMapping("update.do")
 	public String update(@ModelAttribute AdminDTO dto, HttpSession session, Model model) {
-		AdminDTO dto2 = adminDao.detail(dto.getAdminid());
-		if(dto.getPasswd().equals("")) dto.setPasswd(dto2.getPasswd());
-		adminDao.update(dto);
+		if(dto.getPasswd().equals("")) {
+			adminDao.update_no_passwd(dto);;
+		} else {
+			adminDao.update(dto);			
+		}
 		session.setAttribute("adminid", dto.getAdminid());
 		session.setAttribute("name", dto.getName());
-		model.addAttribute("message", "success");
-		return "redirect:/user/detail/" + dto.getAdminid();
+		return "redirect:/admin/detail/" + dto.getAdminid();
 	}
 	
 	@RequestMapping("passwd_check.do")
