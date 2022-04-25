@@ -4,6 +4,7 @@
 <%@ include file="../common/header.jsp" %>
 <html>
 <head>
+
 <style>
 table {
 	border-collapse: collapse;
@@ -11,7 +12,7 @@ table {
 	line-height: 1.5;
 	border: 1px solid #ccc;
 	margin: 20px 10px;
-	width: 98%;
+	width: 97%;
 }
 
 table thead {
@@ -42,7 +43,7 @@ table td {
 	padding: 10px;
 	vertical-align: top;
 	border-bottom: 1px solid #ccc;
-}
+} 
 
 </style>
 
