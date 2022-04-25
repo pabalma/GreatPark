@@ -12,7 +12,7 @@ $(function(){
 });
 </script>
 	<br>
-	<h2>Goods List</h2>
+	<h2 class="text-center">Goods List</h2>
 	<br>
 	<table border="1" width="500px" class="table table-hover">
 	<tr>
@@ -37,7 +37,7 @@ $(function(){
 	</table>
 <!-- 세션 확인 -->
 <c:if test="${sessionScope.adminid != null}">
-	<br><button type="button" id="btnAdd">상품등록</button>
+	<button type="button" id="btnAdd" class="btn btn-outline-secondary">상품등록</button>
 </c:if>
 
 <%@ include file="../common/footer.jsp" %>
