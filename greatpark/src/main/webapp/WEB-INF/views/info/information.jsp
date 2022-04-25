@@ -18,7 +18,7 @@
 			</a>
 		</p>
 	</div>
-	<div width="300px" height="100px" style="float:center" backgroung-color="">
+	<div width="300px" height="100px" style="float:center">
 		<p style="font-size:50px;text-align:center">	
 			<a href="/info/foodcort.do" style="text-decoration:none;color:black">
 				음식점안내
