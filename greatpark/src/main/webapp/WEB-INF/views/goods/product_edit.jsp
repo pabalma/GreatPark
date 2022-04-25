@@ -54,7 +54,7 @@ function product_update(){
 	<tr>
 		<td>상품이미지</td>
 		<td>
-			<img src="/spring04/images/${dto.filename}" width="300px" height="300px">
+			<img src="/images/${dto.filename}" width="300px" height="300px">
 			<br>
 			<input type="file" name="file1">
 		</td>

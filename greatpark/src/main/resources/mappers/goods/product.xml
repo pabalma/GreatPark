@@ -15,7 +15,7 @@
 		select filename from product where product_code=${product_code}
 	</select>
 	<delete id="delete">
-		delete product where product_code=${product_code}
+		delete from product where product_code=${product_code}
 	</delete>
 	<select id="list" resultType="com.myproject.greatpark.model.goods.ProductDTO">
 		select * from product order by product_code desc
