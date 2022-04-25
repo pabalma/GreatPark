@@ -2,7 +2,6 @@ package com.myproject.greatpark.model.user;
 
 import java.util.List;
 
-
 public interface UserDAO {
 	List<UserDTO> list();
 	UserDTO detail(String userid);

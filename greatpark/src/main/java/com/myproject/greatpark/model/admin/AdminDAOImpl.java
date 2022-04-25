@@ -9,6 +9,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.myproject.greatpark.model.user.UserDTO;
+
 @Repository
 public class AdminDAOImpl implements AdminDAO {
 
@@ -38,6 +40,11 @@ public class AdminDAOImpl implements AdminDAO {
 	@Override
 	public void update(AdminDTO dto) {
 		sqlSession.update("admin.update", dto);
+	}
+	
+	@Override
+	public void update_no_passwd(AdminDTO dto) {
+		sqlSession.update("admin.update_no_passwd", dto);
 	}
 
 	@Override
