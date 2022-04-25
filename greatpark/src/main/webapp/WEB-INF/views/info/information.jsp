@@ -8,10 +8,10 @@
 	<img width="1600px" height="700px" src="/images/map1.png">
 </div>
 <div>
-	<img width="1600px" height="700px" src="/images/map2.png">
+	<img width="1600px" height="701px" src="/images/map2.png">
 </div>
 <br><br>
-	<div  width="300px" height="100px" style="float:left;margin-left:100px">
+	<div width="300px" height="100px" style="float:left;margin-left:100px">
 		<p style="font-size:50px;text-align:center">
 			<a href="/info/list.do" style="text-decoration:none;color:black">
 				공원이용주의사항
