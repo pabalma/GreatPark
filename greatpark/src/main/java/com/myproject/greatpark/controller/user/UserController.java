@@ -46,6 +46,7 @@ public class UserController {
 			mav.setViewName("redirect:/");
 		} else {
 			mav.setViewName("user/login");
+			mav.addObject("message", "error");
 		}
 		return mav;
 	}

@@ -13,6 +13,9 @@
 	<update id="update">
 		update admin set passwd = HEX(AES_ENCRYPT(#{passwd},MD5('bigdata'))), name = #{name}, level = #{level}, phone = #{phone}, email = #{email} where adminid = #{adminid}
 	</update>
+	<update id="update_no_passwd">
+		update admin set name = #{name}, level = #{level}, phone = #{phone}, email = #{email} where adminid = #{adminid}
+	</update>
 	<delete id="delete">
 		delete from admin where adminid = #{adminid}
 	</delete>

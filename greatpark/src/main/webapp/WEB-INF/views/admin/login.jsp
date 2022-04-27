@@ -39,30 +39,31 @@
 </script>
 </head>
 <body>
-<h2>관리자 로그인</h2>
+<h2 class="mx-5 my-3">관리자 로그인</h2>
 <form name="form1" method="post">
-	<table border="1" width="400px">
-		<tr>
-			<td>아이디</td>
-			<td><input id="adminid" name="adminid"></td>
-		</tr>
-		<tr>
-			<td>비밀번호</td>
-			<td><input type="password" id="passwd" name="passwd"></td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center">
-				<button type="button" id="btnLogin">로그인</button>
-				<button type="button" id="btnJoin">회원가입</button>
-				<c:if test="${message == 'error' }">
-					<div style="color: red;">아이디 또는 비밀번호가 일치하지 않습니다.</div>
-				</c:if>
-				<c:if test="${param.message == 'logout' }">
-					<div style="color:red;">로그아웃되었습니다.</div>
-				</c:if>
-			</td>
-		</tr>
-	</table>
+	<div class="mx-5">
+		<table style="text-align:center;" class="table-borderless" width="350px">
+			<tr class="form-group">
+				<td><input id="adminid" name="adminid" class="form-control" placeholder="아이디"></td>
+			</tr>
+			<tr class="form-group">
+				<td><br><input type="password" id="passwd" name="passwd" class="form-control" placeholder="비밀번호"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right">
+					<br>
+					<button type="button" id="btnLogin" class="btn btn-primary">로그인</button>&nbsp;
+					<button type="button" id="btnJoin" class="btn btn-primary">회원가입</button>
+					<c:if test="${message == 'error' }">
+						<div style="color: red;"><br>아이디 또는 비밀번호가 일치하지 않습니다.</div>
+					</c:if>
+					<c:if test="${param.message == 'logout' }">
+						<div style="color:red;"><br>로그아웃되었습니다.</div>
+					</c:if>
+				</td>
+			</tr>
+		</table>
+	</div>
 </form>
 <%@ include file="../common/footer.jsp" %>
 </body>

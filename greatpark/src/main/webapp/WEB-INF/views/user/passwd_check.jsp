@@ -9,14 +9,25 @@
 <%@ include file="../common/header.jsp" %> 
 </head>
 <body>
-<h2>비밀번호 확인</h2>
+<h2 class="mx-5 my-3">비밀번호 확인</h2>
 <form method="post" action="/user/password_check.do">
-	비밀번호 <input type="password" name="passwd">
-	<button type="submit">확인</button>
+	<div class="mx-5">
+		<table style="text-align:center;" class="table-borderless" width="350px">
+			<tr class="form-group">
+				<td><br><input type="password" name="passwd" class="form-control" placeholder="비밀번호"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right">
+					<c:if test="${message == 'error' }">
+						<div style="color: red;"><br>아이디 또는 비밀번호가 일치하지 않습니다.</div>
+					</c:if>
+					<br>
+					<button type="submit" class="btn btn-primary">확인</button>
+				</td>
+			</tr>
+		</table>
+	</div>
 </form>
-<c:if test="${message == 'error' }">
-	<div style="color: red;">비밀번호가 일치하지 않습니다.</div>
-</c:if>
 <%@ include file="../common/footer.jsp" %>
 </body>
 </html>
