@@ -21,6 +21,7 @@
 	<resources location="/WEB-INF/views/include/" mapping="/include/**" /> <!-- include안의 모든 파일들은 서블릿이 아닌 정적Resource라는 의미 -->
 	<resources location="/WEB-INF/views/js/" mapping="/js/**" />
 	<resources location="/WEB-INF/views/css/" mapping="/css/**" />
+	<resources location="/WEB-INF/views/ckeditor/" mapping="/ckeditor/**" />
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />

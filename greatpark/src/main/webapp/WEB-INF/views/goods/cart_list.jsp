@@ -18,8 +18,13 @@ $(function(){
 	$("#testBtn").click(function(e){
 		e.preventDefault();
 		$("#payModal").modal("show");
+		$("#modalY").show();
+		$("#btnloading").hide();
 	});
 	$(".close").click(function(){
+		$("#payModal").modal("hide");
+	});
+	$("#modalN").click(function(){
 		$("#payModal").modal("hide");
 	});
 	
@@ -28,12 +33,12 @@ $(function(){
 </script>
 	<br>
 	<h2 class="text-center">장바구니</h2>
-	<button id="testBtn" class="btn btn-outline-success" style="float:right;">구매결정</button>
 <c:choose>
 	<c:when test="${map.count == 0}">
 		장바구니가 비었습니다.
 	</c:when>
 	<c:otherwise>
+		<button id="testBtn" class="btn btn-outline-success" style="float:right;">구매결정</button>
 		<form id="form1" name="form1" method="post" action="/goods/cart/update.do">
 		<table border="1" width="400px" class="table">
 		<tr>
@@ -87,6 +92,8 @@ $(function(){
 				</button>
 			</div>
 			<div class="modal-body">
+				배송료는 ${map.fee} 원.<br>
+				결제금액은 <b><fmt:formatNumber value="${map.sum}" pattern="#,###,###" /></b>원 입니다.<br><br>
 				<input class="form-check-input" type="radio" name="pay-gubun" checked>신용카드 &nbsp;
 				<input class="form-check-input" type="radio" name="pay-gubun">앱결제 &nbsp;
 				<input class="form-check-input" type="radio" name="pay-gubun">계좌입금
@@ -95,14 +102,17 @@ $(function(){
 				    우편번호 : <input name="zipcode" id="post_code" readonly>
 				    <input class="btn btn-info btn-sm" type="button" onclick="showPostcode()" value="찾기">
 				</div>
-				<br>	
 				주소 : <input class="form-control" name="address1" id="address1">
 				상세주소 : <input class="form-control" name="address2" id="address2">
 				메시지 : <input class="form-control" name="message" id="message" value="부재시 집 문앞에 놔주시기 바랍니다.">
 			</div>
 			<div class="modal-footer">
-				<button class="btn btn-success btn-sm" id="modalY" href="#" onclick="payClear()">구매확정</button>
-				<button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">취소</button>
+				<button class="btn btn-success btn-sm" id="modalY" href="#" onclick="payComplete()">구매확정</button>
+				<button class="btn btn-primary" id="btnloading" type="button" disabled>
+  				<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  				결제중...
+				</button>
+				<button class="btn btn-secondary btn-sm" id="modalN" type="button" data-dismiss="modal">취소</button>
 			</div>
 		</div>
 	</div>
@@ -133,6 +143,18 @@ function showPostcode() {
 			document.getElementById("address2").focus();
 		}
 	}).open();
+}
+function payComplete() {
+	if(confirm("결제하시겠습니까?")) {
+		setTimeout(function(){
+			payClear();
+			alert("결제가 완료되었습니다.");
+			$("#payModal").modal("hide");
+			location.href="/goods/cart/complete.do";
+		},2000);
+		$("#modalY").hide();
+		$("#btnloading").show();
+	}
 }
 function payClear() {
 	$("#address1").val("");
