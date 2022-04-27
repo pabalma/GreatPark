@@ -43,13 +43,14 @@ $(function(){
 </script>
 </head>
 <body>
-<textarea id="detail_replytext" rows="3" cols="40">${dto.reply_text}</textarea>
+<textarea class="form-control" id="detail_replytext" rows="1">${dto.reply_text}</textarea>
 <div style="text-align:center">
 	<c:if test="${sessionScope.userid == dto.replyer}">
-		<button id="btnReplyUpdate" type="button">수정</button>
-		<button id="btnReplyDelete" type="button">삭제</button>
+		<button class="btn btn-outline-success btn-sm" id="btnReplyUpdate" type="button">수정</button>
+		<button class="btn btn-outline-success btn-sm" id="btnReplyDelete" type="button">삭제</button>
 	</c:if>
-	<button id="btnReplyClose" type="button">닫기</button>
+	<button class="btn btn-outline-primary btn-sm" id="btnReplyClose" type="button">닫기</button>
+	<br>
 </div>
 </body>
 </html>

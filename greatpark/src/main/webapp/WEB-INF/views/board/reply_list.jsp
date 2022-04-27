@@ -21,7 +21,7 @@
 		${row.name}(<fmt:formatDate value="${row.regdate}" pattern="yyyy-MM-dd HH:mm:ss" />)
 		<br>${str}
 		<c:if test="${sessionScope.userid == row.replyer }">
-			<input type="button" value="Modify" onclick="showModify('${row.idx}')">
+			<input type="button" class="btn btn-outline-success btn-sm" value="댓수정" onclick="showModify('${row.idx}')">
 		</c:if>
 	</td>
 </tr>

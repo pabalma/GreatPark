@@ -42,12 +42,12 @@ public class BoardController {
 	}
 	
 	@RequestMapping("list.do")
-	public ModelAndView list(@RequestParam(defaultValue="1") int curPage,
+	public ModelAndView list(@RequestParam(defaultValue="1") int cur_page,
 							 @RequestParam(defaultValue="all") String search_option,
 							 @RequestParam(defaultValue="") String keyword)
 	{
 		int count = boardService.count(search_option,keyword);
-		PageUtil page_info = new PageUtil(count,curPage);
+		PageUtil page_info = new PageUtil(count,cur_page);
 		int start = page_info.getPageBegin();
 		int end = page_info.getPageEnd();
 		List<BoardDTO>list = boardService.list(start,end,search_option,keyword);

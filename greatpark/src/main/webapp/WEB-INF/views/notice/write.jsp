@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="../common/header.jsp" %>
-
+<script src="/ckeditor/ckeditor.js"></script>
 <script>
 	$(function(){
 		$("#btnSave").click(function() {
@@ -24,9 +24,12 @@
 	</div>
 	<div style="width:800px">
 		<textarea rows="5" cols="82" id="cont" name="cont" placeholder="내용을 입력하세요"></textarea>
+		<script>
+			CKEDITOR.replace("cont");
+		</script>
 	</div>
 	<div style="width:700px; text-align:center;">
-		<button style="button" id="btnSave">확인</button>
+		<button class="btn btn-outline-success" style="button" id="btnSave">확인</button>
 	</div>
 	</form>
 
