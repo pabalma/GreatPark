@@ -6,6 +6,11 @@
 <head>
 
 <style>
+
+body{
+	background-color:#F2F8E5;
+}
+
 table {
 	border-collapse: collapse;
 	text-align: center;
@@ -13,13 +18,13 @@ table {
 	border: 1px solid #ccc;
 	margin: 20px 10px;
 	width: 97%;
+	font-size: 30px;
 }
 
 table thead {
 	border-right: 1px solid #ccc;
 	border-left: 1px solid #ccc;
 	background: #9ACA6D;
-	font-size: 30px;
 }
 
 table thead th {
@@ -52,12 +57,11 @@ table td {
 <body>
 
 <div>
-	<img width="1600px" height="700px" src="/images/map3.png">
+	<img width="1600px" height="700px" src="/images/007.png">
 </div>
 <div>
-	<img width="1600px" height="700px" src="/images/map4.png">
+	<img width="1600px" height="700px" src="/images/008.png">
 </div>
-<br>
 <table>
 	<thead>
 		<tr>
@@ -68,7 +72,7 @@ table td {
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach var="row" items="${foodcort }">
+		<c:forEach var="row" items="${foodcort }" >
 			<tr>
 				<th>${row.name }</th>
 				<td>${row.main }</td>
