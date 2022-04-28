@@ -36,10 +36,10 @@
 			<th>등록시간</th>
 			<th><button type="button" class="btn btn-danger" id="btnDelete_all">전체 취소</button></th>
 		</tr>
-		<c:forEach var="row" items="${list }">
+		<c:forEach var="row" items="${list }" varStatus="status">
 		<input type="hidden" id="idx" name="idx" value="${row.idx }">
 		<tr style="text-align:center;" class="table-borderless">
-			<td>${row.rn }</td>
+			<td>${status.count }</td>
 			<td>${row.userid }</td>
 			<td>${row.f_cont }</td>
 			<td>${row.f_fare }</td>

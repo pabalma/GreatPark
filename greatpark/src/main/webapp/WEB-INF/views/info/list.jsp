@@ -140,7 +140,7 @@ li {
 	<tbody>
 		<tr>
 			<th rowspan="4" style="line-height: 250px">
-			<a href="/reservation/write.do" style="text-decoration:none;color:black">
+			<a href="/reservation/list.do" style="text-decoration:none;color:black">
 			입장료(예약가능)
 			</a></th>
 			<td>어린이(12세 미만)</td>
@@ -162,7 +162,7 @@ li {
 		</tr>
 		<tr>
 			<th rowspan="3" style="line-height: 200px">
-			<a href="/reservation/write.do" style="text-decoration:none;color:black">
+			<a href="/reservation/list.do" style="text-decoration:none;color:black">
 			주차장(예약가능)
 			</a></th>
 			<td>A구역 (야외)</td>

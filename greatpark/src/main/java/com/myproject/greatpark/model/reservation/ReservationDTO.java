@@ -3,7 +3,6 @@ package com.myproject.greatpark.model.reservation;
 import java.util.Date;
 
 public class ReservationDTO {
-	private int rn;
 	private int idx;
 	private String userid;
 	private int amount;
@@ -17,12 +16,6 @@ public class ReservationDTO {
 	private Date reg_date;
 	private int total_fare;
 	
-	public int getRn() {
-		return rn;
-	}
-	public void setRn(int rn) {
-		this.rn = rn;
-	}
 	public ReservationDTO() {
 	}
 	public int getIdx() {
@@ -96,6 +89,13 @@ public class ReservationDTO {
 	}
 	public void setTotal_fare(int total_fare) {
 		this.total_fare = total_fare;
+	}
+	@Override
+	public String toString() {
+		return "ReservationDTO [idx=" + idx + ", userid=" + userid + ", amount=" + amount + ", faretype=" + faretype
+				+ ", f_cont=" + f_cont + ", f_fare=" + f_fare + ", parking_area=" + parking_area + ", p_area=" + p_area
+				+ ", p_fare=" + p_fare + ", booking_date=" + booking_date + ", reg_date=" + reg_date + ", total_fare="
+				+ total_fare + "]";
 	}
 	
 }

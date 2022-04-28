@@ -15,9 +15,6 @@
 <script>
 	$(function(){
 		$("#type_amount").hide();
-		$("#btnSubmit").click(function(){
-			document.form1.submit();
-		});
 		$("#amount").change(function(){
 			if($("#amount").val() == "0"){
 				$("#type_amount").show();
@@ -46,8 +43,40 @@
 		    language : "ko"	//달력의 언어 선택, 그에 맞는 js로 교체해줘야한다.
 		    
 		});//datepicker end
+		$("#testBtn").click(function(e){
+			if($("#datePicker").val() == ""){
+				alert("예약일을 선택해 주세요.");
+				location.href = "/reservation/write.do";
+			}
+			e.preventDefault();
+			$("#payModal").modal("show");
+			$("#modalY").show();
+			$("#btnloading").hide();
+		});
+		$(".close").click(function(){
+			$("#payModal").modal("hide");
+		});
+		$("#modalN").click(function(){
+			$("#payModal").modal("hide");
+		});
 		
+		$("#payModal").modal({backdrop:"static",keyboard:false});
 	});
+	function payComplete() {
+		if(confirm("결제하시겠습니까?")) {
+			setTimeout(function(){
+				payClear();
+				alert("결제가 완료되었습니다.");
+				$("#payModal").modal("hide");
+				document.form1.submit();
+			},2000);
+			$("#modalY").hide();
+			$("#btnloading").show();
+		}
+	}
+	function payClear() {
+		$($("input[name='pay-gubun']").get(0)).prop("checked",true);
+	}
 </script>
 </head>
 <body>
@@ -58,7 +87,7 @@
 			<tr>
 				<td>연령</td>
 				<td>
-					<select name="faretype" class="form-select">
+					<select id="faretype" name="faretype" class="form-select">
 						<c:forEach var="rows" items="${fare_list }">
 							<option value="${rows.code }">${rows.cont }</option>
 						</c:forEach>
@@ -92,16 +121,44 @@
 			<tr>
 				<td>예약일자</td>
 				<td>
-					<input type="text" name="date" id="datePicker" class="form-control" value="">
+					<input type="text" name="date" id="datePicker" class="form-control" readonly>
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2" align="right">
-					<button type="button" id="btnSubmit" class="btn btn-primary">예약하기</button>
+					<button id="testBtn" class="btn btn-primary" style="float:right;">예약하기</button>
 				</td>
 			</tr>
 		</table>
 	</form>
+</div>
+  <!-- 회원가입 확인 Modal-->
+<div class="modal fade" id="payModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">결제</h5>
+				<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">X</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<%-- 결제금액은 <b><fmt:formatNumber value="" pattern="#,###,###" /></b>원 입니다.<br><br> --%>
+				<input class="form-check-input" type="radio" name="pay-gubun" checked>신용카드 &nbsp;
+				<input class="form-check-input" type="radio" name="pay-gubun">앱결제 &nbsp;
+				<input class="form-check-input" type="radio" name="pay-gubun">계좌입금
+				<br><br>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-success btn-sm" id="modalY" href="#" onclick="payComplete()">결제하기</button>
+				<button class="btn btn-primary" id="btnloading" type="button" disabled>
+  				<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  				결제중...
+				</button>
+				<button class="btn btn-secondary btn-sm" id="modalN" type="button" data-dismiss="modal">취소</button>
+			</div>
+		</div>
+	</div>
 </div>
 <%@ include file="../common/footer.jsp" %>
 </body>
