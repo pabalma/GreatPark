@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="../common/header.jsp" %>
-
+<script src="/ckeditor/ckeditor.js"></script>
 <script>
 function product_delete(){
 	if(confirm("삭제하시겠습니까?")){
@@ -24,11 +24,11 @@ function product_update(){
 		document.form1.price.focus();
 		return;
 	}
-	if(description == ""){
+	/* if(description == ""){
 		alert("상품설명을 입력하세요.");
 		document.form1.description.focus();
 		return;
-	}
+	} */
 	document.form1.action = "/goods/product/update.do";
 	document.form1.submit();
 }
@@ -48,7 +48,10 @@ function product_update(){
 	<tr>
 		<td>상품설명</td>
 		<td>
-			<textarea rows="5" cols="60" class="form-control" name="description" id="description">${dto.description}</textarea>
+			<textarea class="form-control" name="description" id="description">${dto.description}</textarea>
+			<script>
+				CKEDITOR.replace("description");
+			</script>
 		</td>
 	</tr>
 	<tr>

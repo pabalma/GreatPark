@@ -26,10 +26,10 @@ body{
 	</div>
 <br><br>
 <div>
-	<img width="1600px" height="700px" src="/images/005.png">
+	<img class="img-fluid" width="1600px" height="700px" src="/images/005.png">
 </div>
 <div>
-	<img width="1600px" height="700px" src="/images/006.png">
+	<img class="img-fluid" width="1600px" height="700px" src="/images/006.png">
 </div>
 <%@ include file="../common/footer.jsp" %>
 
