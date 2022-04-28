@@ -87,7 +87,7 @@
 	<input name="keyword" value="${map.keyword}">
 	<input type="submit" value="조회">
 <c:if test="${sessionScope.adminid != null}">
-	&nbsp;&nbsp;<button type="button" id="btnWrite">글쓰기</button>
+	&nbsp;&nbsp;<button class="btn btn-outline-success" type="button" id="btnWrite">글쓰기</button>
 </c:if>
 	</form>
 <%@ include file="../common/footer.jsp" %>

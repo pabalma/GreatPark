@@ -18,7 +18,7 @@
 		delete from product where product_code=${product_code}
 	</delete>
 	<select id="list" resultType="com.myproject.greatpark.model.goods.ProductDTO">
-		select * from product order by product_code desc
+		select * from product order by product_code asc
 	</select>
 	<select id="detail" resultType="com.myproject.greatpark.model.goods.ProductDTO">
 		select * from product where product_code=${product_code}
