@@ -13,7 +13,15 @@ $(function(){
 </script>
 	<br>
 	<h2 class="text-center">Goods List</h2>
+	<!-- 세션 확인 -->
+<c:if test="${sessionScope.adminid != null}">
+	<div align="right">
+	<button type="button" id="btnAdd" class="btn btn-outline-secondary">상품등록</button>
+	</div>
+</c:if>
+<c:if test="${sessionScope.adminid == null}">
 	<br>
+</c:if>
 	<table border="1" width="500px" class="table table-hover">
 	<tr>
 		<th>상품ID</th>
@@ -28,16 +36,12 @@ $(function(){
 		<td><a href="/goods/product/detail/${row.product_code}">${row.product_name}</a>
 	<c:if test="${sessionScope.adminid != null}">
 			<br>
-			<a href="/goods/product/edit/${row.product_code}">[편집]</a>
+			<a class="btn btn-outline-secondary btn-sm" href="/goods/product/edit/${row.product_code}">편집</a>
 	</c:if>
 		</td>
 		<td><fmt:formatNumber value="${row.price}" pattern="#,###"/></td>
 	</tr>
 </c:forEach>
 	</table>
-<!-- 세션 확인 -->
-<c:if test="${sessionScope.adminid != null}">
-	<button type="button" id="btnAdd" class="btn btn-outline-secondary">상품등록</button>
-</c:if>
-
+	<br>
 <%@ include file="../common/footer.jsp" %>

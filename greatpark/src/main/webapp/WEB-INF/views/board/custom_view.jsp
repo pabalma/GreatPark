@@ -150,7 +150,7 @@ function showModify(idx) {
 		<input type="hidden" name="num" value="${dto.num}">
 <c:if test="${sessionScope.userid == dto.userid }">
 			<button class="btn btn-outline-success" id="btnUpdate">수정</button>
-			<button class="btn btn-outline-success" id="btnDelete">삭제</button>
+			<button class="btn btn-outline-danger" id="btnDelete">삭제</button>
 </c:if>
 	</div>
 	</form>

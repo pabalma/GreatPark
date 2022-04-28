@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="../common/header.jsp" %>
-
+<script src="/ckeditor/ckeditor.js"></script>
 <script>
 function product_write(){
 	var product_name = document.form1.product_name.value;
@@ -18,11 +18,11 @@ function product_write(){
 		document.form1.price.focus();
 		return;
 	}
-	if(description==""){
+	/* if(description==""){
 		alert("상품설명을 입력하세요.");
 		document.form1.description.focus();
 		return;
-	}
+	} */
 	document.form1.action = "/goods/product/insert.do";
 	document.form1.submit();
 }
@@ -31,19 +31,22 @@ function product_write(){
 	<br>
 	<h2 class="text-center">상품 등록</h2>
 	<form name="form1" method="post" enctype="multipart/form-data">
-	<table>
+	<table class="table">
 	<tr>
 		<td>상품명</td>
-		<td><input name="product_name"></td>
+		<td><input class="form-control" name="product_name"></td>
 	</tr>
 	<tr>
 		<td>가격</td>
-		<td><input name="price"></td>
+		<td><input class="form-control" name="price"></td>
 	</tr>
 	<tr>
 		<td>상품설명</td>
 		<td>
-			<textarea rows="5" cols="60" name="description"></textarea>
+			<textarea class="form-control" name="description" id="description"></textarea>
+			<script>
+				CKEDITOR.replace("description");
+			</script>
 		</td>
 	</tr>
 	<tr>
