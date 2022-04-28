@@ -3,15 +3,14 @@
 <%@ include file="../common/header.jsp" %>
 <head>
 <title>공원이용안내</title>
+<style>
+body{
+	background-color:#F2F8E5;
+}
+</style>
 </head>
-<div>
-	<img width="1600px" height="700px" src="/images/map1.png">
-</div>
-<div>
-	<img width="1600px" height="700px" src="/images/map2.png">
-</div>
 <br><br>
-	<div width="300px" height="100px" style="float:left;margin-left:100px">
+<div width="300px" height="100px" style="float:left;margin-left:100px">
 		<p style="font-size:50px;text-align:center">
 			<a href="/info/list.do" style="text-decoration:none;color:black">
 				공원이용주의사항
@@ -26,5 +25,11 @@
 		</p>
 	</div>
 <br><br>
+<div>
+	<img width="1600px" height="700px" src="/images/005.png">
+</div>
+<div>
+	<img width="1600px" height="700px" src="/images/006.png">
+</div>
 <%@ include file="../common/footer.jsp" %>
 

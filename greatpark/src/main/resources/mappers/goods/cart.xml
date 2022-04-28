@@ -15,26 +15,29 @@
 		delete from cart where product_code=${product_code}
 	</delete>
 	<delete id="delete_all">
-		delete from cart where userid=#{userid}
+		delete from cart where userid=#{userid} and complete=0
 	</delete>
 	<select id="list" resultType="com.myproject.greatpark.model.goods.CartDTO">
 		select cart_id,p.product_code,c.userid,name,product_name,
 				amount,price,price*amount money
 		  from user u,cart c,product p
 		  where u.userid=c.userid and c.product_code=p.product_code
-		  		and c.userid=#{userid}
+		  		and c.userid=#{userid} and c.complete=0
 		  order by cart_id
 	</select>
 	<select id="sum_money" resultType="int">
 		select ifnull(sum(price*amount),0) 
 		  from cart c,product p
-		  where c.product_code=p.product_code and userid=#{userid}
+		  where c.product_code=p.product_code and userid=#{userid} and complete=0
 	</select>
 	<select id="cart_money" resultType="com.myproject.greatpark.model.goods.CartDTO">
 		select product_name,sum(price*amount) money
 		from cart c,product p
-		where c.product_code=p.product_code
+		where c.product_code=p.product_code and c.complete=0
 		group by product_name
 		order by product_name
 	</select>
+	<update id="update_complete">
+		update cart set complete=1 where complete=0 and userid=#{userid}
+	</update>
 </mapper>
