@@ -21,12 +21,12 @@
             <div class="border-end bg-white" id="sidebar-wrapper">
                 <div class="sidebar-heading border-bottom bg-light"><a class="bg-light list-group-item-light" href="/">Home</a></div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/info/information.do">이용안내</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/reservation/list.do">예약</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/goods/product/list.do">굿즈구입</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/board/list.do">고객요청</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/notice/list.do">공지</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">사이트맵</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-4" href="/info/information.do">이용안내</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-4" href="/reservation/list.do">예약</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-4" href="/goods/product/list.do">굿즈구입</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-4" href="/board/list.do">고객요청</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-4" href="/notice/list.do">공지</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-4" href="#!">사이트맵</a>
                 </div>
             </div>
             <!-- Page content wrapper-->
@@ -47,7 +47,8 @@
 									<li class="nav-item active"><a class="nav-link" href="/user/logout.do">로그아웃</a></li>
 								</c:when>
 								<c:when test="${sessionScope.adminid != null }">
-									<li class="nav-item nav-link">관리자 ${sessionScope.name }(${sessionScope.adminid })님 환영합니다</li>
+									<li class="nav-item nav-link">관리자 ${sessionScope.name}(${sessionScope.adminid })님 환영합니다</li>
+									<li class="nav-item active"><a class="nav-link" href="/admin/detail/${sessionScope.adminid }">관리자 정보</a></li>
 									<li class="nav-item active"><a class="nav-link" href="/admin/logout.do">로그아웃</a></li>
 								</c:when>
 								<c:otherwise>
@@ -57,9 +58,8 @@
                                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="/admin/login.do">관리자 로그인</a>
-                                        <a class="dropdown-item" href="#!">Another action</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#!">Something else here</a>
+                                        <a class="dropdown-item" href="#!">Sitemap</a>
                                     </div>
                                 </li>
 								</c:otherwise>

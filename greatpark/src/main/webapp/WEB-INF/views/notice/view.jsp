@@ -3,7 +3,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@ include file="../common/header.jsp" %>
-
+<script src="/ckeditor/ckeditor.js"></script>
 <script>
 $(function(){
 	$("#btnList").click(function(){
@@ -29,22 +29,25 @@ $(function(){
 });
 </script>
 	<br>
-	<h2>공지사항 상세</h2>
+	<h2 class="text-center">공지사항 상세</h2>
+	<br>
 	<form id="form1" name="form1" method="post">
 	<div>작성일자: <fmt:formatDate value="${dto.reg_date}" pattern="yyyy-MM-dd HH:mm:ss" /></div>
-	<div>조회수: ${dto.cnt}</div>
-	<div>이름: ${dto.name}</div>
-	<div>제목: <input name="title" value="${dto.title}"></div>
-	<div style="width:80%">내용: 
+	<div class="col-sm-8"><input class="form-control" name="title" value="${dto.title}"></div>
+	<br>
+	<div style="width:80%"> 
 		<textarea rows="3" cols="80" name="cont" id="cont">${dto.cont}</textarea>
+		<script>
+			CKEDITOR.replace("cont");
+		</script>
 	</div>
 	<div>
 		<input type="hidden" name="num" value="${dto.num}">
 <c:if test="${sessionScope.adminid == dto.adminid }">
-			<button type="button" id="btnUpdate">수정</button>
-			<button type="button" id="btnDelete">삭제</button>
+			<br>
+			<button class="btn btn-outline-success" type="button" id="btnUpdate">수정</button>
+			<button class="btn btn-outline-danger" type="button" id="btnDelete">삭제</button>
 </c:if>
-		<button type="button" id="btnList">목록</button>
 	</div>
 	</form>
 	

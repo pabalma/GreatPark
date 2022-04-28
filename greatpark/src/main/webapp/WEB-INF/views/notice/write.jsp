@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="../common/header.jsp" %>
-
+<script src="/ckeditor/ckeditor.js"></script>
 <script>
 	$(function(){
 		$("#btnSave").click(function() {
@@ -17,16 +17,22 @@
 	});
 </script>
 	<br>
-	<h2>게시물작성</h2>
+	<h2 class="text-center">게시물작성</h2>
+	<br>
 	<form id="form1" name="form1" method="post" action="/notice/insert.do">
-	<div>
-		<input name="title" id="title" size="80" placeholder="제목을 입력하세요.">
+	<div class="col-sm-8">
+		<input class="form-control" name="title" id="title" size="80" placeholder="제목을 입력하세요.">
 	</div>
+	<br>
 	<div style="width:800px">
 		<textarea rows="5" cols="82" id="cont" name="cont" placeholder="내용을 입력하세요"></textarea>
+		<script>
+			CKEDITOR.replace("cont");
+		</script>
 	</div>
+	<br>
 	<div style="width:700px; text-align:center;">
-		<button style="button" id="btnSave">확인</button>
+		<button class="btn btn-outline-success" style="button" id="btnSave">확인</button>
 	</div>
 	</form>
 

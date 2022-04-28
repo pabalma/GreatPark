@@ -10,15 +10,42 @@
 <%@ include file="../common/header.jsp" %> 
 </head>
 <body>
-<h2>회원 정보</h2>
+<h2 class="mx-5 my-3">회원 정보</h2>
 <form method="post" name="form1">
-	아이디 ${dto.userid }<br>
-	이름 ${dto.name }<br>
-	나이 ${dto.age }<br>
-	전화번호 ${dto.phone }<br>
-	이메일 ${dto.email }<br>
-	가입일자 <fmt:formatDate value="${dto.join_date }" pattern="yyyy-MM-dd HH:mm:ss" />
-	<button type="button" onclick="location.href='/user/passwd_check.do'">수정</button>
+	<div class="mx-5">
+		<table style="text-align:center;" class="table-borderless" width="350px">
+			<tr>
+				<td><br>아이디</td>
+				<td><br><input class="form-control" placeholder="${dto.userid }" readonly></td>
+			</tr>
+			<tr>
+				<td><br>이름</td>
+				<td><br><input class="form-control" placeholder="${dto.name }" readonly></td>
+			</tr>
+			<tr>
+				<td><br>나이</td>
+				<td><br><input class="form-control" placeholder="${dto.age }" readonly></td>
+			</tr>
+			<tr>
+				<td><br>전화번호</td>
+				<td><br><input class="form-control" placeholder="${dto.phone }" readonly></td>
+			</tr>
+			<tr>
+				<td><br>이메일</td>
+				<td><br><input class="form-control" placeholder="${dto.email }" readonly></td>
+			</tr>
+			<tr>
+				<td><br>가입일자</td>
+				<td><br><input class="form-control" placeholder="<fmt:formatDate value="${dto.join_date }" pattern='yyyy-MM-dd HH:mm:ss' />" readonly></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right">
+					<br>
+					<button type="button" class="btn btn-primary" onclick="location.href='/user/passwd_check.do'">수정</button>
+				</td>
+			</tr>
+		</table>
+	</div>
 </form>
 <%@ include file="../common/footer.jsp" %>
 </body>

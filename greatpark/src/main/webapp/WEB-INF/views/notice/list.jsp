@@ -17,9 +17,9 @@
 	}
 </script>
 	<br>
-	<h2>공지 사항</h2>
+	<h2 class="text-center">공지 사항</h2>
 	${map.count}개의 게시물이 있습니다.
-	<table border="1" width="600px">
+	<table border="1" width="600px" class="table table_hover">
 	<tr>
 		<th>번호</th>
 		<th>제목</th>
@@ -87,7 +87,7 @@
 	<input name="keyword" value="${map.keyword}">
 	<input type="submit" value="조회">
 <c:if test="${sessionScope.adminid != null}">
-	&nbsp;&nbsp;<button type="button" id="btnWrite">글쓰기</button>
+	&nbsp;&nbsp;<button class="btn btn-outline-success" type="button" id="btnWrite">글쓰기</button>
 </c:if>
 	</form>
 <%@ include file="../common/footer.jsp" %>

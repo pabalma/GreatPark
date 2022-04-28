@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="../common/header.jsp" %>
-
+<script src="/ckeditor/ckeditor.js"></script>
 <script>
 function product_delete(){
 	if(confirm("삭제하시겠습니까?")){
@@ -24,31 +24,34 @@ function product_update(){
 		document.form1.price.focus();
 		return;
 	}
-	if(description == ""){
+	/* if(description == ""){
 		alert("상품설명을 입력하세요.");
 		document.form1.description.focus();
 		return;
-	}
+	} */
 	document.form1.action = "/goods/product/update.do";
 	document.form1.submit();
 }
 </script>
 	<br>
-	<h2>상품 정보 수정/삭제</h2>
+	<h2 class="text-center">상품 정보 수정/삭제</h2>
 	<form id="form1" name="form1" method="post" enctype="multipart/form-data">
-	<table>
+	<table class="table">
 	<tr>
 		<td>상품명</td>
-		<td><input name="product_name" value="${dto.product_name}"></td>
+		<td><input name="product_name" class="form-control" value="${dto.product_name}"></td>
 	</tr>
 	<tr>
 		<td>가격</td>
-		<td><input name="price" value="${dto.price}"></td>
+		<td><input name="price" class="form-control" value="${dto.price}"></td>
 	</tr>
 	<tr>
 		<td>상품설명</td>
 		<td>
-			<textarea rows="5" cols="60" name="description" id="description">${dto.description}</textarea>
+			<textarea class="form-control" name="description" id="description">${dto.description}</textarea>
+			<script>
+				CKEDITOR.replace("description");
+			</script>
 		</td>
 	</tr>
 	<tr>
@@ -62,9 +65,8 @@ function product_update(){
 	<tr>
 		<td colspan="2" align="center">
 			<input type="hidden" name="product_code" value="${dto.product_code}">
-			<input type="button" value="수정" onclick="product_update()">
-			<input type="button" value="삭제" onclick="product_delete()">
-			<input type="button" value="목록" onclick="location.href='/goods/product/list.do'">
+			<input type="button" value="수정" class="btn btn-outline-success" onclick="product_update()">
+			<input type="button" value="삭제" class="btn btn-outline-primary" onclick="product_delete()">
 		</td>
 	</tr>
 	</table>
