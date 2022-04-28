@@ -57,10 +57,10 @@ table td {
 <body>
 
 <div>
-	<img width="1600px" height="700px" src="/images/007.png">
+	<img class="img-fluid" width="1600px" height="700px" src="/images/007.png">
 </div>
 <div>
-	<img width="1600px" height="700px" src="/images/008.png">
+	<img class="img-fluid" width="1600px" height="700px" src="/images/008.png">
 </div>
 <table>
 	<thead>
