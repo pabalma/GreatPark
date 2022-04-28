@@ -14,11 +14,15 @@
 <script src="../include/bootstrap-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
 <script>
 	$(function(){
+		$("#type_amount").val("1");
 		$("#type_amount").hide();
+		$("#faresel2").hide();
 		$("#amount").change(function(){
 			if($("#amount").val() == "0"){
+				$("#type_amount").val("");
 				$("#type_amount").show();
 			} else{
+				$("#type_amount").val($("#amount").val());
 				$("#type_amount").hide();
 			}
 		});
@@ -47,8 +51,13 @@
 			if($("#datePicker").val() == ""){
 				alert("예약일을 선택해 주세요.");
 				location.href = "/reservation/write.do";
+			} else if(($("#amount").val() == "0") && 
+			   		(($("#type_amount").val() == null) || ($("#type_amount").val() == ""))) {
+				alert("티켓 수량을 넣어주세요.");
+				location.href = "/reservation/write.do";
 			}
 			e.preventDefault();
+			printFare();
 			$("#payModal").modal("show");
 			$("#modalY").show();
 			$("#btnloading").hide();
@@ -87,9 +96,14 @@
 			<tr>
 				<td>연령</td>
 				<td>
-					<select id="faretype" name="faretype" class="form-select">
+					<select onchange="farechange()" id="faresel" name="faretype" class="form-select">
 						<c:forEach var="rows" items="${fare_list }">
-							<option value="${rows.code }">${rows.cont }</option>
+							<option value="${rows.code}">${rows.cont }</option>
+						</c:forEach>
+					</select>
+					<select id="faresel2">
+						<c:forEach var="rows" items="${fare_list }">
+							<option value="${rows.code}">${rows.fare}</option>
 						</c:forEach>
 					</select>
 				</td>
@@ -132,12 +146,31 @@
 		</table>
 	</form>
 </div>
+<script>
+function farechange() {
+	var idx = $("#faresel option:selected").val();	
+	$("#faresel2").val(idx).prop("selected", true);
+}
+
+function printFare() {
+	var result = 0;
+	var fare = 0;
+	var cnt = 0;
+	var idx = $("#faresel option:selected").val();	
+	$("#faresel2").val(idx).prop("selected", true);
+	
+	fare = $("#faresel2 option:selected").text();
+	cnt = $("#type_amount").val();
+	result = fare*cnt;
+	$("#fareresult").text(result); 
+}
+</script>
   <!-- 회원가입 확인 Modal-->
 <div class="modal fade" id="payModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">결제</h5>
+				<h5 class="modal-title" id="exampleModalLabel">결제금액: ₩<span id="fareresult"></span></h5>
 				<button class="close" type="button" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">X</span>
 				</button>
