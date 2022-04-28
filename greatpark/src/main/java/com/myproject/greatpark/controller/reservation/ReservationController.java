@@ -69,6 +69,7 @@ public class ReservationController {
 		String userid = session.getAttribute("userid").toString();
 		dto.setUserid(userid);
 		dto.setBooking_date(date);
+		System.out.println(dto);
 		reservationDao.insert(dto);
 		return "redirect:/reservation/list.do";
 	}
