@@ -34,7 +34,7 @@
 		from board b inner join user u
 		<include refid="search" />
 		order by num desc, reg_date     
-		LIMIT ${start-1}, ${end-start}
+		LIMIT ${start-1}, ${end-start+1}
 	</select>
 	<select id="detail" resultType="com.myproject.greatpark.model.board.BoardDTO">
 		select num,title,cont,b.reg_date,cnt,name,u.userid

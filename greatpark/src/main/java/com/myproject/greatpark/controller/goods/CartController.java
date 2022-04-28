@@ -82,5 +82,10 @@ public class CartController {
 		cartDao.insert(dto);
 		return "redirect:/goods/cart/list.do";
 	}
-
+	@RequestMapping("complete.do")
+	public String complete(HttpSession session) {
+		String userid = (String)session.getAttribute("userid");
+		cartDao.update_complete(userid);
+		return "redirect:/goods/cart/list.do";
+	}
 }

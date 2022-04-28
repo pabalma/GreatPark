@@ -46,5 +46,9 @@ public class CartDAOImpl implements CartDAO {
 	public void modify(CartDTO dto) {
 		sqlSession.update("cart.modify",dto);
 	}
-
+	
+	@Override
+	public void update_complete(String userid) {
+		sqlSession.update("cart.update_complete",userid);
+	}
 }
