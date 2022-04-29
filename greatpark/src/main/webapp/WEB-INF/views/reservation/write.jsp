@@ -162,6 +162,7 @@ function printFare() {
 	fare = $("#faresel2 option:selected").text();
 	cnt = $("#type_amount").val();
 	result = fare*cnt;
+	result = result.toLocaleString('ko-KR');
 	$("#fareresult").text(result); 
 }
 </script>
