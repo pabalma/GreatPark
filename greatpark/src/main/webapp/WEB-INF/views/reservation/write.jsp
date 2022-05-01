@@ -17,6 +17,8 @@
 		$("#type_amount").val("1");
 		$("#type_amount").hide();
 		$("#faresel2").hide();
+		$("#parking_area2").hide();
+		
 		$("#amount").change(function(){
 			if($("#amount").val() == "0"){
 				$("#type_amount").val("");
@@ -97,8 +99,8 @@
 				<td>연령</td>
 				<td>
 					<select onchange="farechange()" id="faresel" name="faretype" class="form-select">
-						<c:forEach var="rows" items="${fare_list }">
-							<option value="${rows.code}">${rows.cont }</option>
+						<c:forEach var="rows" items="${fare_list}">
+							<option value="${rows.code}">${rows.cont}</option>
 						</c:forEach>
 					</select>
 					<select id="faresel2">
@@ -125,9 +127,14 @@
 			<tr>
 				<td>주차공간</td>
 				<td>
-					<select name="parking_area" class="form-select">
-						<c:forEach var="rows" items="${parking_list }">
-							<option value="${rows.code }">${rows.cont }</option>
+					<select onchange="parkingchange()" id="parking_area" name="parking_area" class="form-select">
+						<c:forEach var="rows" items="${parking_list}">
+							<option value="${rows.code}">${rows.cont}</option>
+						</c:forEach>
+					</select>
+					<select id="parking_area2">
+						<c:forEach var="rows" items="${parking_list}">
+							<option value="${rows.code}">${rows.fare}</option>
 						</c:forEach>
 					</select>
 				</td>
@@ -152,16 +159,21 @@ function farechange() {
 	$("#faresel2").val(idx).prop("selected", true);
 }
 
+function parkingchange() {
+	var idx = $("#parking_area option:selected").val();	
+	$("#parking_area2").val(idx).prop("selected", true);
+}
+
 function printFare() {
 	var result = 0;
 	var fare = 0;
-	var cnt = 0;
-	var idx = $("#faresel option:selected").val();	
-	$("#faresel2").val(idx).prop("selected", true);
+	var parking = 0;
+	var cnt = 0;	
 	
 	fare = $("#faresel2 option:selected").text();
+	parking = $("#parking_area2 option:selected").text();
 	cnt = $("#type_amount").val();
-	result = fare*cnt;
+	result = (fare*cnt) + parseInt(parking);
 	result = result.toLocaleString('ko-KR');
 	$("#fareresult").text(result); 
 }
